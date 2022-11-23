@@ -7,6 +7,8 @@ export const ContextProvider = ({children}) => {
   const [currentMode, setCurrentMode] = useState('Light');
   const [screenSize, setScreenSize] = useState(undefined);
 
+  // const [darkTheme, setDarkTheme] = useState(false)
+
   const setMode = () => {
     if(currentMode === 'Light') {
       setCurrentMode('Dark');
@@ -14,8 +16,12 @@ export const ContextProvider = ({children}) => {
       setCurrentMode('Light');
     }
 
-    // localStorage.setItem('Mode', currentMode);
+    localStorage.setItem('Mode', currentMode);
   };
+
+  // const setDarkTheme =() => {
+
+  // }
 
   const handleCloseSideBar = () => {
     if (activeMenu && screenSize <= 900) {

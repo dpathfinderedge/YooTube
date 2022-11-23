@@ -8,3 +8,5 @@ export {default as Comedy} from './Comedy';
 export {default as Games} from './Games';
 export {default as Sports} from './Sports';
 export {default as Telivision} from './Telivision';
+
+export {default as Videos} from './Videos';

@@ -1,22 +1,21 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useStateContext } from '../contexts/ContextProvider';
-
 import { categories } from '../utils/constants';
 
 const Sidebar = () => {
   const { activeMenu, handleCloseSideBar } = useStateContext();
 
   const activeLink = 'flex items-center gap-5 rounded-[30px] text-md text-white py-3 pl-4 m-1';
-  const normalLink = 'flex items-center gap-5 rounded-[30px] text-md text-white py-3 pl-4 m-1 text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray';
-  const notActiveMenuActiveLink = 'flex flex-col items-center gap-2 rounded-[30px] text-md text-white py-3 pl-4 m-1';
-  const notActiveMenuNormalLink = 'flex flex-col items-center gap-2 rounded-[30px] text-md text-white py-3 pl-4 m-1 text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray';
+  const normalLink = 'flex items-center gap-5 rounded-[30px] text-md text-white py-3 sm:pl-4 pl-2 m-1 text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray';
+  const notActiveMenuActiveLink = 'flex flex-col items-center gap-2 text-md text-white py-2 my-1';
+  const notActiveMenuNormalLink = 'flex flex-col items-center gap-2 text-md text-white py-2 my-1 text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray';
 
   return (
-    <div className="ml-3 md:overflow-hidden overflow-auto md:hover-overflow-auto pb-10">
+    <div className="overflow-hidden hover:overflow-x-hidden hover:overflow-auto h-full pb-14">
       {activeMenu ? (
         <>
-          <div className="mt-5">
+          <div className="">
             {categories.map((category) => (
               <NavLink
                 key={category.name}
@@ -25,17 +24,17 @@ const Sidebar = () => {
                 style={({ isActive }) => ({
                   backgroundColor: isActive ? "#aaa" : ''
                 })}
-                className={({ isActive }) => isActive ? activeLink: normalLink}
+                className={({ isActive }) => isActive ? activeLink : normalLink}
               >
                 {category.icon}
-                <span className="capitalize">{category.name}</span>
+                <span className="capitalize md:text-[16px] sm:text-[12px] text-[10px]">{category.name}</span>
               </NavLink>
             ))}
           </div>
         </>
       ) : (
         <>
-          <div className="mt-5">
+          <div className="">
             {categories.map((category) => (
               <NavLink
                 key={category.name}
@@ -44,10 +43,10 @@ const Sidebar = () => {
                 style={({ isActive }) => ({
                   backgroundColor: isActive ? "#aaa" : ''
                 })}
-                className={({ isActive }) => isActive ? notActiveMenuActiveLink: notActiveMenuNormalLink}
+                className={({ isActive }) => isActive ? notActiveMenuActiveLink : notActiveMenuNormalLink}
               >
                 {category.icon}
-                <span className="capitalize">{category.name}</span>
+                <span className="capitalize sm:block hidden md:text-[16px] sm:text-[12px] text-[10px]">{category.name}</span>
               </NavLink>
             ))}
           </div>
@@ -57,4 +56,4 @@ const Sidebar = () => {
   )
 }
 
-export default Sidebar
+export default Sidebar;
