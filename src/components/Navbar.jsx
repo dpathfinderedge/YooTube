@@ -89,7 +89,7 @@ const Navbar = () => {
       <div>
         {
           isClicked && (
-            <div className="flex justify-between items-center my-1 space-x-4 sm:hidden block">
+            <div className="flex justify-between items-center my-1 space-x-4 sm:hidden block transition-all">
               <div className="w-[30px] h-[30px] rounded-full dark:hover:bg-gray-400 hover:bg-gray-100 flex justify-start items-center w-full">
                 <button onClick={() => setIsClicked(false)} >
                   <BiArrowBack className="text-2xl dark:text-white dark:hover:text-slate-900" />
